@@ -10,12 +10,14 @@ License: MIT Open Source License
     <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
   <body>
+    <!--
+    // Exercises 1-2
     <p class="p1">First paragraph</p>
     <p>Second paragraph</p>
+    -->
 
     <script>
-    
-        /*
+      /*
       // Exercise 1:
       // Version 7.3.0 shows
       console.log("d3.version:", d3.version);
@@ -32,7 +34,29 @@ License: MIT Open Source License
       d3.select(".p1").style("text-decoration", "underline");
       */
 
-      
+      // Exercise 3:
+      for (var i = 0; i < 10; i++) {
+        if (i < 5) {
+          d3.select("body")
+            .append("div")
+            .text(i + 1)
+            .style("color", "red");
+        } else if (i >= 5) {
+          d3.select("body")
+            .append("div")
+            .text(i + 1)
+            .style("color", "green");
+        }
+      }
+
+      // Exercise 4:
+      // Filters all results based upon if a div's contents == 1
+      d3.selectAll("div")
+        .filter(function() {
+          return d3.select(this).text() == 1;
+        })
+        .text("Start")
+        .style("color", "purple");
     </script>
   </body>
 </html>
