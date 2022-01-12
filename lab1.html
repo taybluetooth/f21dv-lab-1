@@ -10,53 +10,206 @@ License: MIT Open Source License
     <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
   <body>
-    <!--
-    // Exercises 1-2
-    <p class="p1">First paragraph</p>
-    <p>Second paragraph</p>
-    -->
-
     <script>
-      /*
       // Exercise 1:
-      // Version 7.3.0 shows
-      console.log("d3.version:", d3.version);
-      */
 
-      /*
+      exercise1 = () => {
+        // Version 7.3.0 shows
+        console.log("d3.version:", d3.version);
+      };
+
       // Exercise 2:
-      d3.selectAll("p")
-      .style("color", "blue")
-      .style("font-size", "20px")
-      .style("font-family", "sans-serif")
-      .style("line-height", "8px");
 
-      d3.select(".p1").style("text-decoration", "underline");
-      */
+      exercise2 = () => {
+        // Create HTML elements programatically
+        // Classed adds class selector to element
+        d3.select("body")
+          .append("p")
+          .classed("p1", true)
+          .text("First paragraph");
+        d3.select("body").append("p").text("Second paragraph");
+
+        d3.selectAll("p")
+          .style("color", "blue")
+          .style("font-size", "20px")
+          .style("font-family", "sans-serif")
+          .style("line-height", "8px");
+
+        d3.select(".p1").style("text-decoration", "underline");
+      };
 
       // Exercise 3:
-      for (var i = 0; i < 10; i++) {
-        if (i < 5) {
-          d3.select("body")
-            .append("div")
-            .text(i + 1)
-            .style("color", "red");
-        } else if (i >= 5) {
-          d3.select("body")
-            .append("div")
-            .text(i + 1)
-            .style("color", "green");
+
+      exercise3 = () => {
+        for (var i = 0; i < 10; i++) {
+          if (i < 5) {
+            d3.select("body")
+              .append("div")
+              .text(i + 1)
+              .style("color", "red");
+          } else if (i >= 5) {
+            d3.select("body")
+              .append("div")
+              .text(i + 1)
+              .style("color", "green");
+          }
         }
-      }
+      };
 
       // Exercise 4:
-      // Filters all results based upon if a div's contents == 1
-      d3.selectAll("div")
-        .filter(function() {
-          return d3.select(this).text() == 1;
-        })
-        .text("Start")
-        .style("color", "purple");
+
+      exercise4 = () => {
+        d3.selectAll("div")
+          .filter(function () {
+            return d3.select(this).text() == 1;
+          })
+          .text("Start")
+          .style("color", "purple");
+      };
+
+      // Exercise 5:
+
+      exercise5 = () => {
+        d3.select("body")
+          .append("div")
+          .text("Hello World!")
+          .style("color", "green");
+      };
+
+      // Exercise 6:
+
+      exercise6 = () => {
+        // Create HTML elements programatically
+
+        for (var i = 0; i < 3; i++) {
+          d3.select("body").append("div");
+        }
+
+        let otherdata = [
+          { name: "test", val: 1, color: "blue" },
+          { name: "other", val: 2, color: "red" },
+          { name: "b", val: 3, color: "green" },
+        ];
+
+        let paragraph = d3
+          .select("body")
+          .selectAll("div")
+          .data(otherdata)
+          .text(function (d, i) {
+            console.log("d.name: " + d.name);
+            console.log("d.val:  " + d.val);
+            console.log("d.color " + d.color);
+            console.log("i: " + i);
+            console.log("this: " + this);
+
+            return "cont:" + d.name;
+          });
+      };
+
+      // Exercise 7:
+
+      exercise7 = () => {
+        // Create HTML elements programatically
+
+        for (var i = 0; i < 4; i++) {
+          d3.select("body").append("div");
+        }
+
+        let num = [10, 50, 100, 200];
+
+        let paragraph = d3
+          .select("body")
+          .selectAll("div")
+          .data(num)
+          .text(function (d, i) {
+            return "cont:" + d;
+          })
+          .style("color", function (d, i) {
+            if (d >= 50 && d <= 100) {
+              return "red";
+            } else {
+              return "yellow";
+            }
+            return "blue";
+          });
+      };
+
+      // Exercise 8:
+
+      exercise8 = () => {
+        var myData = ["a", 4, 1, "b", 6, 2, 8, 9, "z"];
+
+        var p = d3
+          .select("body")
+          .selectAll("span")
+          .data(myData)
+          .enter()
+          .append("span")
+          .style("color", function (d, i) {
+            // JS has no char type
+            // Will check if string and length 1
+            if (typeof d == "string" && d.length == 1) {
+              return "blue";
+            } else if (typeof d == "number") {
+              return "green";
+            }
+          })
+          .text(function (d, i) {
+            return d;
+          });
+      };
+
+      // Exercise 9:
+      // Titles without . include passenger siblings
+      // Not all passengers have a title
+
+      exercise9 = async () => {
+        const titaniccsv =
+          "https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv";
+        const titles = [
+          { title: "Mr.", num: 0 },
+          { title: "Master.", num: 0 },
+          { title: "Mrs.", num: 0 },
+          { title: "Miss.", num: 0 },
+        ];
+
+        const genders = [
+          { sex: "Male", num: 0 },
+          { sex: "Female", num: 0 },
+        ];
+
+        const data = await d3.csv(titaniccsv);
+        
+        // Count titles
+        data.forEach(entry => {
+          titles.forEach(count => {
+            if (entry.Name.includes(count.title)) {
+              count.num++
+            }
+          });
+        });
+
+        // Count genders
+        data.forEach(entry => {
+          genders.forEach(count => {
+            if (entry.Sex === count.sex.toLowerCase()) {
+              count.num++
+            }
+          });
+        });
+
+        // Print titles
+        titles.forEach(count => {
+          console.log(count.title + ": " + count.num);
+        });
+
+        // Print genders
+        genders.forEach(count => {
+          console.log(count.sex + ": " + count.num);
+        });
+      };
+
+      exercise9();
     </script>
   </body>
 </html>
