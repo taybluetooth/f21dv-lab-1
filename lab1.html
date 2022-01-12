@@ -13,14 +13,14 @@ License: MIT Open Source License
     <script>
       // Exercise 1:
 
-      exercise1 = () => {
+      const exercise1 = () => {
         // Version 7.3.0 shows
         console.log("d3.version:", d3.version);
       };
 
       // Exercise 2:
 
-      exercise2 = () => {
+      const exercise2 = () => {
         // Create HTML elements programatically
         // Classed adds class selector to element
         d3.select("body")
@@ -40,7 +40,7 @@ License: MIT Open Source License
 
       // Exercise 3:
 
-      exercise3 = () => {
+      const exercise3 = () => {
         for (var i = 0; i < 10; i++) {
           if (i < 5) {
             d3.select("body")
@@ -58,7 +58,7 @@ License: MIT Open Source License
 
       // Exercise 4:
 
-      exercise4 = () => {
+      const exercise4 = () => {
         d3.selectAll("div")
           .filter(function () {
             return d3.select(this).text() == 1;
@@ -69,7 +69,7 @@ License: MIT Open Source License
 
       // Exercise 5:
 
-      exercise5 = () => {
+      const exercise5 = () => {
         d3.select("body")
           .append("div")
           .text("Hello World!")
@@ -78,7 +78,7 @@ License: MIT Open Source License
 
       // Exercise 6:
 
-      exercise6 = () => {
+      const exercise6 = () => {
         // Create HTML elements programatically
 
         for (var i = 0; i < 3; i++) {
@@ -108,7 +108,7 @@ License: MIT Open Source License
 
       // Exercise 7:
 
-      exercise7 = () => {
+      const exercise7 = () => {
         // Create HTML elements programatically
 
         for (var i = 0; i < 4; i++) {
@@ -136,7 +136,7 @@ License: MIT Open Source License
 
       // Exercise 8:
 
-      exercise8 = () => {
+      const exercise8 = () => {
         var myData = ["a", 4, 1, "b", 6, 2, 8, 9, "z"];
 
         var p = d3
@@ -163,7 +163,7 @@ License: MIT Open Source License
       // Titles without . include passenger siblings
       // Not all passengers have a title
 
-      exercise9 = async () => {
+      const exercise9 = async () => {
         const titaniccsv =
           "https://raw.githubusercontent.com/dsindy/kaggle-titanic/master/data/test.csv";
         const titles = [
