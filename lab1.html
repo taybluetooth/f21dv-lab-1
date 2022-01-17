@@ -179,37 +179,144 @@ License: MIT Open Source License
         ];
 
         const data = await d3.csv(titaniccsv);
-        
+
         // Count titles
-        data.forEach(entry => {
-          titles.forEach(count => {
+        data.forEach((entry) => {
+          titles.forEach((count) => {
             if (entry.Name.includes(count.title)) {
-              count.num++
+              count.num++;
             }
           });
         });
 
         // Count genders
-        data.forEach(entry => {
-          genders.forEach(count => {
+        data.forEach((entry) => {
+          genders.forEach((count) => {
             if (entry.Sex === count.sex.toLowerCase()) {
-              count.num++
+              count.num++;
             }
           });
         });
 
         // Print titles
-        titles.forEach(count => {
+        titles.forEach((count) => {
           console.log(count.title + ": " + count.num);
         });
 
         // Print genders
-        genders.forEach(count => {
+        genders.forEach((count) => {
           console.log(count.sex + ": " + count.num);
         });
       };
 
-      exercise9();
+      // Exercise 10:
+
+      const exercise10 = async () => {
+        let heartfailurecsv =
+          "https://raw.githubusercontent.com/akmand/datasets/master/heart_failure.csv";
+
+        // Object to hold ages
+        let ageCount = [
+          { label: "1-30", count: 0 },
+          { label: "31-40", count: 0 },
+          { label: "41-60", count: 0 },
+          { label: "61-100", count: 0 },
+        ];
+
+        // Temp storage array for ages
+        let arr = [];
+
+        // Fetch data from csv
+        const data = await d3.csv(heartfailurecsv);
+
+        // Parse data and process ages into temp array
+        data.forEach((entry) => {
+          arr.push(entry.age);
+        });
+
+        // Divide ages into their own categories
+        arr.forEach((entry) => {
+          if (entry >= 1 && entry <= 30) {
+            ageCount[0].count += 1;
+          } else if (entry >= 31 && entry <= 40) {
+            ageCount[1].count += 1;
+          } else if (entry >= 41 && entry <= 60) {
+            ageCount[2].count += 1;
+          } else if (entry >= 61 && entry <= 100) {
+            ageCount[3].count += 1;
+          }
+        });
+
+        // Create HTML elements programatically
+        for (var i = 0; i < 4; i++) {
+          d3.select("body").append("p");
+        }
+
+        // Add data to paragraphs
+        var p = d3
+          .select("body")
+          .selectAll("p")
+          .data(ageCount)
+          .text(function (d, i) {
+            return d.label + ": " + d.count;
+          });
+      };
+
+      const exercise11 = () => {
+        // Create SVG element
+        var svg = d3
+          .select("body")
+          .append("svg")
+          .attr("width", 400)
+          .attr("height", 400)
+          .style("border", "1px solid green");
+
+        // Create line elements inside SVG to form square
+        svg
+          .append("line")
+          .attr("stroke", "blue")
+          .attr("x1", 100)
+          .attr("x2", 200)
+          .attr("y1", 100)
+          .attr("y2", 100);
+
+        svg
+          .append("line")
+          .attr("stroke", "red")
+          .attr("x1", 200)
+          .attr("x2", 200)
+          .attr("y1", 100)
+          .attr("y2", 200);
+
+        svg
+          .append("line")
+          .attr("stroke", "purple")
+          .attr("x1", 200)
+          .attr("x2", 100)
+          .attr("y1", 200)
+          .attr("y2", 200);
+
+        svg
+          .append("line")
+          .attr("stroke", "green")
+          .attr("x1", 100)
+          .attr("x2", 100)
+          .attr("y1", 200)
+          .attr("y2", 100);
+      };
+
+      const exercise12 = async () => {
+
+        const csv = await d3.csv("C:/Users/callu/Documents/Year4SoftEng/f21dv/f21dv-lab-1/svgtest.csv");
+
+        csv.forEach((data) => {
+          arr.push({shape: data.shape, dim: data.dim, position: data.position, color: data.color})
+        })
+
+        console.log(arr)
+      };
+
+      exercise12();
     </script>
   </body>
 </html>
