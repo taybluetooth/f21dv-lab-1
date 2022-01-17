@@ -262,6 +262,8 @@ License: MIT Open Source License
           });
       };
 
+      // Exercise 11:
+
       const exercise11 = () => {
         // Create SVG element
         var svg = d3
@@ -305,6 +307,8 @@ License: MIT Open Source License
           .attr("y2", 100);
       };
 
+      // Exercise 12:
+
       const exercise12 = async () => {
         let svgcsv =
           "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/svgtest.csv";
@@ -339,7 +343,39 @@ License: MIT Open Source License
                 .attr("stroke", entry.color)
                 .attr("cx", dim[0])
                 .attr("cy", dim[1])
-                .attr("r", entry.position)
+                .attr("r", entry.position);
+              break;
+            case "ellipse":
+              let dim = entry.dim.split(",");
+              let pos = entry.position.split(",");
+              svg
+                .append(entry.shape)
+                .attr("stroke", entry.color)
+                .attr("cx", dim[0])
+                .attr("cy", dim[1])
+                .attr("rx", pos[0])
+                .attr("ry", pos[1]);
+              break;
+            case "line":
+              let dim = entry.dim.split(",");
+              svg
+                .append(entry.shape)
+                .attr("stroke", entry.color)
+                .attr("x1", dim[0])
+                .attr("y1", dim[1])
+                .attr("x2", dim[2])
+                .attr("y2", dim[3])
+              break;
+            case "rect":
+              let dim = entry.dim.split(",");
+              let pos = entry.position.split(",");
+              svg
+                .append(entry.shape)
+                .attr("stroke", entry.color)
+                .attr("x", pos[0])
+                .attr("y", pos[1])
+                .attr("width", dim[1])
+                .attr("height", dim[0])
               break;
           }
         });
