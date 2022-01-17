@@ -334,30 +334,35 @@ License: MIT Open Source License
           .attr("height", 400)
           .style("border", "1px solid green");
 
+        let dim = []
+        let pos = []
+
         arr.forEach((entry) => {
           switch (entry.shape.toLowerCase()) {
             case "circle":
-              let dim = entry.dim.split(",");
+              dim = entry.dim.split(",");
               svg
                 .append(entry.shape)
                 .attr("stroke", entry.color)
+                .attr("fill", entry.color)
                 .attr("cx", dim[0])
                 .attr("cy", dim[1])
                 .attr("r", entry.position);
               break;
             case "ellipse":
-              let dim = entry.dim.split(",");
-              let pos = entry.position.split(",");
+              dim = entry.dim.split(",");
+              pos = entry.position.split(",");
               svg
                 .append(entry.shape)
                 .attr("stroke", entry.color)
+                .attr("fill", entry.color)
                 .attr("cx", dim[0])
                 .attr("cy", dim[1])
                 .attr("rx", pos[0])
                 .attr("ry", pos[1]);
               break;
             case "line":
-              let dim = entry.dim.split(",");
+              dim = entry.dim.split(",");
               svg
                 .append(entry.shape)
                 .attr("stroke", entry.color)
@@ -367,11 +372,12 @@ License: MIT Open Source License
                 .attr("y2", dim[3])
               break;
             case "rect":
-              let dim = entry.dim.split(",");
-              let pos = entry.position.split(",");
+              dim = entry.dim.split(",");
+              pos = entry.position.split(",");
               svg
                 .append(entry.shape)
                 .attr("stroke", entry.color)
+                .attr("fill", entry.color)
                 .attr("x", pos[0])
                 .attr("y", pos[1])
                 .attr("width", dim[1])
@@ -380,6 +386,127 @@ License: MIT Open Source License
           }
         });
       };
+
+      // Exercise 13:
+
+      exercise13 = () => {
+
+      }
+
+      // Exercise 14:
+
+      exercise14 = () => {
+
+      }
+
+      // Exercise 15:
+
+      exercise15 = () => {
+
+      }
+
+      // Exercise 16:
+
+      exercise16 = () => {
+
+      }
+
+      // Exercise 17:
+
+      exercise17 = () => {
+
+      }
+
+      // Exercise 18:
+
+      exercise18 = () => {
+
+      }
+
+      // Exercise 19:
+
+      exercise19 = () => {
+
+      }
+
+      // Exercise 20:
+
+      exercise20 = () => {
+
+      }
+
+      // Exercise 21:
+
+      exercise21 = () => {
+
+      }
+
+      // Exercise 22:
+
+      exercise22 = () => {
+
+      }
+
+      // Exercise 23:
+
+      exercise23 = () => {
+
+      }
+
+      // Exercise 24:
+
+      exercise24 = () => {
+
+      }
+
+      // Exercise 25:
+
+      exercise25 = () => {
+
+      }
+
+      // Exercise 26:
+
+      exercise26 = () => {
+
+      }
+
+      // Exercise 27:
+
+      exercise27 = () => {
+
+      }
+
+      // Exercise 28:
+
+      exercise28 = () => {
+
+      }
+
+      // Exercise 29:
+
+      exercise29 = () => {
+
+      }
+
+      // Exercise 30:
+
+      exercise30 = () => {
+
+      }
+
+      // Exercise 31:
+
+      exercise31 = () => {
+
+      }
+
+      // Exercise 32:
+
+      exercise32 = () => {
+
+      }
+      
 
       exercise12();
     </script>
