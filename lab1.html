@@ -306,14 +306,43 @@ License: MIT Open Source License
       };
 
       const exercise12 = async () => {
+        let svgcsv =
+          "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/svgtest.csv";
+        let arr = [];
 
-        const csv = await d3.csv("C:/Users/callu/Documents/Year4SoftEng/f21dv/f21dv-lab-1/svgtest.csv");
+        const csv = await d3.csv(svgcsv);
 
         csv.forEach((data) => {
-          arr.push({shape: data.shape, dim: data.dim, position: data.position, color: data.color})
-        })
+          arr.push({
+            shape: data.shape,
+            dim: data.dim,
+            position: data.position,
+            color: data.color,
+          });
+        });
 
-        console.log(arr)
+        console.log(arr);
+
+        var svg = d3
+          .select("body")
+          .append("svg")
+          .attr("width", 400)
+          .attr("height", 400)
+          .style("border", "1px solid green");
+
+        arr.forEach((entry) => {
+          switch (entry.shape.toLowerCase()) {
+            case "circle":
+              let dim = entry.dim.split(",");
+              svg
+                .append(entry.shape)
+                .attr("stroke", entry.color)
+                .attr("cx", dim[0])
+                .attr("cy", dim[1])
+                .attr("r", entry.position)
+              break;
+          }
+        });
       };
 
       exercise12();
