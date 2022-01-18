@@ -658,17 +658,26 @@ License: MIT Open Source License
 
       // Exercise 18:
 
-      const exercise18 = () => {
-        const data = [50, 400, 300, 900, 250, 1000];
+      const exercise18 = async () => {
+        const path =
+          "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/ex18.csv";
+        const csv = await d3.csv(path);
 
         const width = 500;
         const barHeight = 20;
         const margin = 1;
 
+        const data = []
+        csv.forEach((entry) => {
+          data.push(entry.value);
+        })
+
+        console.log(data)
+
         var scale = d3
           .scaleLinear()
           .domain([d3.min(data), d3.max(data)])
-          .range([50, 500]);
+          .range([100, 200]);
 
         var svg = d3
           .select("body")
