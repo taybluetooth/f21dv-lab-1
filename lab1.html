@@ -672,12 +672,10 @@ License: MIT Open Source License
           data.push(entry.value);
         })
 
-        console.log(data)
-
         var scale = d3
           .scaleLinear()
           .domain([d3.min(data), d3.max(data)])
-          .range([100, 200]);
+          .range([20, 400]);
 
         var svg = d3
           .select("body")
