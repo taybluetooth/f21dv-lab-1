@@ -667,10 +667,10 @@ License: MIT Open Source License
         const barHeight = 20;
         const margin = 1;
 
-        const data = []
+        const data = [];
         csv.forEach((entry) => {
           data.push(parseInt(entry.value));
-        })
+        });
 
         var scale = d3
           .scaleLinear()
@@ -713,18 +713,17 @@ License: MIT Open Source License
 
       // Exercise 19:
 
-      exercise19 = (path) => {
-
+      const exercise19 = async (path) => {
         const csv = await d3.csv(path);
 
         const width = 500;
         const barHeight = 20;
         const margin = 1;
 
-        const data = []
+        const data = [];
         csv.forEach((entry) => {
           data.push(parseInt(entry.value));
-        })
+        });
 
         var scale = d3
           .scaleLinear()
@@ -765,7 +764,14 @@ License: MIT Open Source License
           });
       };
 
-      exercise19
+      const testExercise19 = () => {
+        exercise19(
+          "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/ex18.csv"
+        );
+        exercise19(
+          "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/ex19.csv"
+        );
+      };
 
       // Exercise 20:
 
