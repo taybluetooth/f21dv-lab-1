@@ -14,7 +14,7 @@
 export default async function exercise12() {
   // Init csv path
   let svgcsv =
-    "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/csv/ex12.csv";
+    "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/public/csv/ex12.csv";
   
   // Init list which holds objects from file
   let arr = [];

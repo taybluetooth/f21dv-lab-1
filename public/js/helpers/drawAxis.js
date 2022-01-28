@@ -14,7 +14,8 @@
  * @param {*} y
  * @param {*} yMax
  */
-export default function drawAxis (svg, x, y, yMax) {
+
+export default function drawAxis(svg, x, y, yMax) {
   // bottom
   svg
     .append("g")
@@ -33,4 +34,4 @@ export default function drawAxis (svg, x, y, yMax) {
     .append("g")
     .attr("transform", `translate(${yMax},0)`)
     .call(d3.axisRight(y));
-};
+}

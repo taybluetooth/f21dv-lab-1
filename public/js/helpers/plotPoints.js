@@ -8,7 +8,8 @@
  * plotPoints
  * Plots points onto a graph given a data set, list of positions
  * and an svg object
- *
+ * 
+ * @export
  * @param {*} arr
  * @param {*} pos
  * @param {*} svg
@@ -17,7 +18,8 @@
  * @param {string} [type="circle"]
  * @param {string} [color="red"]
  */
-const plotPoints = (
+
+export default function plotPoints(
   arr,
   pos,
   svg,
@@ -25,7 +27,7 @@ const plotPoints = (
   yMax,
   type = "circle",
   color = "red"
-) => {
+) {
   // Init d3 symbol object for shapes
   var symbol = d3.symbol();
 
@@ -79,4 +81,4 @@ const plotPoints = (
     .attr("text-anchor", "middle")
     .style("fill", "black")
     .style("font-family", "sans-serif");
-};
+}

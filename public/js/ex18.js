@@ -13,7 +13,7 @@
 export default async function exercise18() {
   // Init csv path
   const path =
-    "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/csv/ex18.csv";
+    "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/public/csv/ex18.csv";
 
   // Fetch csv data asynchronously
   const csv = await d3.csv(path);

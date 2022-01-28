@@ -4,7 +4,7 @@
  * License: MIT
  */
 
-import drawAxis from "./helpers/drawAxis.js";
+import drawAxis from "./drawAxis.js";
 
 /**
  * drawWave

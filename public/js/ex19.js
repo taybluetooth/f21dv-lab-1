@@ -11,6 +11,7 @@
  *
  * @param {*} path
  */
+
 async function getEx19(path) {
   const csv = await d3.csv(path);
 
@@ -69,6 +70,6 @@ async function getEx19(path) {
  */
 export default function exercise19() {
   getEx19(
-    "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/csv/ex19.csv"
+    "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/public/csv/ex19.csv"
   );
 }
