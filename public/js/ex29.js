@@ -11,7 +11,7 @@
  * @export
  */
 
-export default function exercise29 () {
+export default function exercise29() {
   // Set Dimensions
   const xSize = 600;
   const ySize = 600;
@@ -89,4 +89,7 @@ export default function exercise29 () {
           return y(d.y);
         })
     );
-};
+    
+  // Set axes text to be black
+  svg.selectAll("svg text").style("fill", "black");
+}

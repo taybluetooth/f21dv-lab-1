@@ -4,6 +4,9 @@
  * License: MIT
  */
 
+// Import modules
+import drawWave from "./helpers/drawWave.js";
+import plotWave from "./helpers/plotWave.js";
 import plotPoints from "./helpers/plotPoints.js";
 
 /**
@@ -37,12 +40,12 @@ export default async function exercise26() {
   // 1: Sine Wave
   // 2: Cosine Wave
   // 3: Tangent Wave
-  arr = plotWave(arr, 1);
-  arr2 = plotWave(arr2, 2);
+  let pos = plotWave(arr, 1);
+  let pos2 = plotWave(arr2, 2);
 
-  drawWave(arr, svg, xMax, yMax, "gold");
-  drawWave(arr2, svg, xMax, yMax, "red");
+  drawWave(pos, svg, xMax, yMax, "gold");
+  drawWave(pos2, svg, xMax, yMax, "red");
 
-  plotPoints(arr, svg, xMax, yMax);
-  plotPoints(arr2, svg, xMax, yMax, "triangle", "blue");
+  plotPoints(arr, pos, svg, xMax, yMax);
+  plotPoints(arr2, pos2, svg, xMax, yMax, "triangle", "blue");
 }

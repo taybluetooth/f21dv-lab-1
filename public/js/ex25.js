@@ -102,4 +102,7 @@ export default function exercise25() {
     })
     .attr("r", 5)
     .style("fill", "red");
+
+    // Set axes text to be black
+    svg.selectAll("svg text").style("fill", "black");
 }

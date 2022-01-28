@@ -38,7 +38,7 @@ export default function exercise27() {
   // 1: Sine Wave
   // 2: Cosine Wave
   // 3: Tangent Wave
-  pos = plotWave(arr, 1);
+  let pos = plotWave(arr, 1);
 
   drawWave(pos, svg, xMax, yMax, "gold");
 

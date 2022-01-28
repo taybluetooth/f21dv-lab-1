@@ -59,5 +59,6 @@ export default function exercise28() {
     .attr("dy", ".35em")
     .text(function (d) {
       return d;
-    });
+    })
+    .style("fill", "black");
 }
