@@ -80,5 +80,6 @@ export default function plotPoints(
     })
     .attr("text-anchor", "middle")
     .style("fill", "black")
+    .style("font-size", "10px")
     .style("font-family", "sans-serif");
 }
