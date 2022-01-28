@@ -21,16 +21,29 @@ License: MIT Open Source License
     <script type="module">
       import * as ex from "./js/modules.js";
 
+      // Dynamically call function to reduce bloat
       function callExercise(i) {
         eval("ex." + "exercise" + i + "()");
       }
 
+      // Create html elements
       d3.select("body")
         .append("h2")
         .text("Select an exercise from the dropdown")
-        .style("font-family", "sans-serif").style("margin-left", "8px");;
+        .style("font-family", "sans-serif")
+        .style("margin-left", "8px");
 
-      var div = d3.select("body").append("div").classed("selector", true).style("display", "inline");
+      d3.select("body")
+        .append("span")
+        .text("d3.version:" + d3.version)
+        .style("font-family", "sans-serif")
+        .style("margin-left", "8px");
+
+      var div = d3
+        .select("body")
+        .append("div")
+        .classed("selector", true)
+        .style("display", "inline");
 
       var select = d3.select("div").append("select");
 
@@ -46,8 +59,12 @@ License: MIT Open Source License
           return d;
         });
 
-      select.style("padding", "12px").style("display", "block").style("margin", "8px");
+      select
+        .style("padding", "12px")
+        .style("display", "block")
+        .style("margin", "8px");
 
+      // If dropdown changed, call new exercise
       select.on("change", function (d) {
         var selectedOption = d3.select(this).property("value");
         callExercise(selectedOption);
