@@ -70,6 +70,9 @@ async function getEx19(path) {
  */
 export default function exercise19() {
   getEx19(
+    "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/public/csv/ex18.csv"
+  );
+  getEx19(
     "https://raw.githubusercontent.com/taybluetooth/f21dv-lab-1/main/public/csv/ex19.csv"
   );
 }
