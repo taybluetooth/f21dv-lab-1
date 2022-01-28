@@ -40,13 +40,7 @@ License: MIT Open Source License
         .style("margin-left", "8px")
         .style("display", "block");
 
-      var div = d3
-        .select("body")
-        .append("div")
-        .classed("selector", true)
-        .style("display", "inline");
-
-      var select = d3.select("div").append("select");
+      var select = d3.select("body").append("select");
 
       select
         .selectAll("option")
@@ -68,6 +62,7 @@ License: MIT Open Source License
       // If dropdown changed, call new exercise
       select.on("change", function (d) {
         var selectedOption = d3.select(this).property("value");
+        d3.select("body").selectAll("*:not(select):not(option):not(h2):not(span)").remove();
         callExercise(selectedOption);
       });
     </script>
