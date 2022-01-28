@@ -90,4 +90,7 @@ export default function exercise22() {
           return y(d.y);
         })
     );
+
+    // Set axes text to be black
+    svg.selectAll("svg text").style("fill", "black");
 }

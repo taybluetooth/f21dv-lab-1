@@ -102,4 +102,7 @@ export default async function exercise23() {
           return y(d.y);
         })
     );
+
+    // Set axes text to be black
+    svg.selectAll("svg text").style("fill", "black");
 }

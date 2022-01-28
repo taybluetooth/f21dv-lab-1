@@ -54,11 +54,13 @@ export default async function exercise9()  {
 
   // Print titles
   titles.forEach((count) => {
+    d3.select("body").append("p").text(`${count.title}: ${count.num}`)
     console.log(count.title + ": " + count.num);
   });
 
   // Print genders
   genders.forEach((count) => {
+    d3.select("body").append("p").text(`${count.sex}: ${count.num}`)
     console.log(count.sex + ": " + count.num);
   });
 };
