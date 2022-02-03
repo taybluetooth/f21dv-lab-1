@@ -2,6 +2,12 @@
 ## Callum Taylor
 ## H00292327
 
-Lab 1 for F21DV Data Visualisation.
+### Lab 1 for F21DV Data Visualisation.
 
-Heroku: https://f21dv-lab-1.herokuapp.com/
+### Heroku: 
+    - https://f21dv-lab-1.herokuapp.com/
+
+### Instructions to Run:
+    - Navigate to the source code directory.
+    - In the command line run `node app.js`.
+    - In a browser navigate to localhost:3000.
